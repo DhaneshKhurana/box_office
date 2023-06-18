@@ -1,18 +1,5 @@
-import { Link } from 'react-router-dom';
-
 const Home = () => {
-  return (
-    <div>
-      <div>
-        <Link to="/">
-          <input type="radio" name="movies" /> <span>Home</span>
-        </Link>
-        <Link to="/fav">
-          <input type="radio" name="movies" /> <span>Favourite</span>
-        </Link>
-      </div>
-    </div>
-  );
+  return <div>This is Home Page</div>;
 };
 
 export default Home;

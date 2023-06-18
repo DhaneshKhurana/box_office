@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Fav from './pages/Fav';
+import Main from './components/Main';
 
 function App() {
   return (
@@ -10,8 +11,10 @@ function App() {
     // </div>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/fav" element={<Fav />}></Route>
+        <Route element={<Main />}>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/fav" element={<Fav />}></Route>
+        </Route>
       </Routes>
     </BrowserRouter>
   );
