@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getShowDetail } from '../data/tv_maze';
+import { getShowDetail } from '../../data/tv_maze';
 
 const useShowId = showId => {
   const [data, setData] = useState({});
@@ -29,7 +29,7 @@ const ShowDesc = () => {
   // const [data, setData] = useState({});
   // const [error, setError] = useState(null);
 
-  const imgsrc = data.image ? data.image.medium : '/altImage.png';
+  const imgsrc = data.image ? data.image.original : '/altImage.png';
   const name = data.name;
   const type = data.type;
   const smry = data.summary

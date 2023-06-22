@@ -27,6 +27,9 @@ const ShowCard = ({ data }) => {
       <div>
         <Link to={`/show/${showId}`}>Read More</Link>
       </div>
+      <div>
+        <Link to={`/shows/${showId}`}>Show Page Details</Link>
+      </div>
     </>
   );
 };

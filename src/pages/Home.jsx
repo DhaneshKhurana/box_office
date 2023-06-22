@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { getActors, getShows } from '../data/tv_maze';
-import ShowGrid from '../show/ShowGrid';
-import ActorGrid from '../actor/ActorGrid';
+import ShowGrid from '../components/show/ShowGrid';
+import ActorGrid from '../components/actor/ActorGrid';
 import { useQuery } from '@tanstack/react-query';
 //import { useEffect } from 'react';
 

@@ -3,8 +3,9 @@ import './App.css';
 import Home from './pages/Home';
 import Fav from './pages/Fav';
 import Main from './components/Main';
-import ShowDesc from './show/ShowDesc';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import ShowPage from './pages/ShowPage';
+import ShowDesc from './components/show/ShowDesc';
 
 const queryClient = new QueryClient();
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/fav" element={<Fav />}></Route>
           </Route>
           <Route path="/show/:showId" element={<ShowDesc />}></Route>
+          <Route path="/shows/:showId" element={<ShowPage />}></Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
