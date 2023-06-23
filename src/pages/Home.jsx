@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { getActors, getShows } from '../data/tv_maze';
-import ShowGrid from '../components/show/ShowGrid';
 import ActorGrid from '../components/actor/ActorGrid';
 import { useQuery } from '@tanstack/react-query';
-//import { useEffect } from 'react';
+import ShowGridPage from './ShowGridPage';
 
 const Home = () => {
   const [searchStr, setSearchStr] = useState('');
   const [searchOption, setSearchOption] = useState('show');
-  //const [result, setResult] = useState(null);
   const queryKey = [searchStr, searchOption];
   const queryFn =
     searchOption === 'show'
@@ -19,7 +17,7 @@ const Home = () => {
     queryFn: queryFn,
   });
 
-  console.log('Some error occured?', error);
+  console.log('Some error occurred?', error);
 
   const onSearchStrChange = event => {
     setSearchStr(event.target.value);
@@ -31,21 +29,9 @@ const Home = () => {
     //updateResult(null, event.target.value);
   };
 
-  // async function updateResult(searchVal, searchOp) {
-  //   let data = null;
-  //   searchVal ||= searchStr;
-  //   searchOp ||= searchOption;
-  //   if (searchOp === 'show') {
-  //     data = await getShows(searchVal);
-  //   } else {
-  //     data = await getActors(searchVal);
-  //   }
-  //   setResult(data);
-  // }
-
   const renderResults = () => {
     if (searchOption === 'show') {
-      return <ShowGrid result={result} />;
+      return <ShowGridPage result={result} />;
     }
     return <ActorGrid result={result} />;
   };

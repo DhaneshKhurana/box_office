@@ -13,9 +13,12 @@ async function getData(query) {
 
 export const getActors = query => getData(`${ACTOR_SEARCH_URL}${query}`);
 export const getShows = query => getData(`${SHOW_SEARCH_URL}${query}`);
-export const getShowDetail = query => {
-  console.log(
-    `getShowDetail::  ${SHOW_DET_URL}${query}?embed[]=seasons&embed[]=cast`
+export const getShowDetail = query =>
+  getData(`${SHOW_DET_URL}${query}?embed[]=seasons&embed[]=cast`);
+export const getFavShows = async shows => {
+  const promises = shows.map(showId =>
+    getData(`${SHOW_DET_URL}/${showId}?embed[]=seasons&embed[]=cast`)
   );
-  return getData(`${SHOW_DET_URL}${query}?embed[]=seasons&embed[]=cast`);
+  const showArray = await Promise.all(promises);
+  return showArray.map(show => ({ show: show }));
 };

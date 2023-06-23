@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const ShowCard = ({ data }) => {
+const ShowCard = ({ data, favBtn, onFavBtnClicked }) => {
   const imgsrc = data.image ? data.image.medium : '/altImage.png';
   const name = data.name;
   const type = data.type;
@@ -12,6 +12,7 @@ const ShowCard = ({ data }) => {
         .join(' ')
         .replaceAll(/<[^>]+>/g, '')
     : 'No Summary Found';
+
   return (
     <>
       <div>
@@ -23,12 +24,20 @@ const ShowCard = ({ data }) => {
       <div>
         <h3>Show Type: {type}</h3>
       </div>
+      <div>
+        <h3>Show ID: {showId}</h3>
+      </div>
       <p>Summary: {smry}</p>
       <div>
         <Link to={`/show/${showId}`}>Read More</Link>
       </div>
       <div>
         <Link to={`/shows/${showId}`}>Show Page Details</Link>
+      </div>
+      <div>
+        <button type="button" onClick={() => onFavBtnClicked(showId)}>
+          {favBtn}
+        </button>
       </div>
     </>
   );
