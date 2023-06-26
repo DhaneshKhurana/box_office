@@ -3,6 +3,7 @@ import { getActors, getShows } from '../data/tv_maze';
 import ActorGrid from '../components/actor/ActorGrid';
 import { useQuery } from '@tanstack/react-query';
 import ShowGridPage from './ShowGridPage';
+import CustomRadio from '../components/home/CustomRadio';
 
 const Home = () => {
   const [searchStr, setSearchStr] = useState('');
@@ -37,32 +38,26 @@ const Home = () => {
   };
 
   return (
-    <>
+    <div>
       <div>
         <input type="text" value={searchStr} onChange={onSearchStrChange} />
-        <label>
-          Show
-          <input
-            type="radio"
-            name="search_option"
-            value="show"
-            checked={searchOption === 'show'}
-            onChange={onSearchOptionChanged}
-          />
-        </label>
-        <label>
-          Actor
-          <input
-            type="radio"
-            name="search_option"
-            value="actor"
-            checked={searchOption === 'actor'}
-            onChange={onSearchOptionChanged}
-          />
-        </label>
+        <CustomRadio
+          label="Show"
+          name="search_option"
+          value="show"
+          checked={searchOption === 'show'}
+          onChange={onSearchOptionChanged}
+        />
+        <CustomRadio
+          label="Actor"
+          name="search_option"
+          value="actor"
+          checked={searchOption === 'actor'}
+          onChange={onSearchOptionChanged}
+        />
       </div>
       <div>{result && renderResults()}</div>
-    </>
+    </div>
   );
 };
 

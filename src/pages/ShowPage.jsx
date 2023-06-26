@@ -29,13 +29,13 @@ const ShowPage = () => {
 
   if (error || !show) {
     return (
-      <>
+      <div>
         <div>Show page with show id {showId}</div>
         <div>Sorry an unforseen error occured. Here it is.</div>
         <div>Error Name : {error ? error.name : 'No Error'}</div>
         <div>Error Message : {error ? error.message : 'No error'}</div>
         <div>Error : {error ? error.toString() : 'No Error'}</div>
-      </>
+      </div>
     );
   } else {
     return (

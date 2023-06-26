@@ -14,7 +14,7 @@ const ShowCard = ({ data, favBtn, onFavBtnClicked }) => {
     : 'No Summary Found';
 
   return (
-    <>
+    <div>
       <div>
         <img src={imgsrc} alt={`${name} image`}></img>
       </div>
@@ -39,7 +39,7 @@ const ShowCard = ({ data, favBtn, onFavBtnClicked }) => {
           {favBtn}
         </button>
       </div>
-    </>
+    </div>
   );
 };
 export default ShowCard;

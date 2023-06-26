@@ -38,17 +38,17 @@ const ShowDesc = () => {
 
   if (error) {
     return (
-      <>
+      <div>
         <div>SHow page with show id {showId}</div>
         <div>Sorry an unforseen error occured. Here it is.</div>
         <div>Error Name : {error.name}</div>
         <div>Error Message : {error.message}</div>
         <div>Error : {error.toString()}</div>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div>
         <div>SHow page with show id {showId}</div>
         <div>
           <img src={imgsrc} alt={`${name} image`}></img>
@@ -60,7 +60,7 @@ const ShowDesc = () => {
           <h3>Show Type: {type}</h3>
         </div>
         <p>Summary: {smry}</p>
-      </>
+      </div>
     );
   }
 };

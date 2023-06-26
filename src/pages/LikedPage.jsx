@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import { getFavShows } from '../data/tv_maze';
 import ShowGridPage from './ShowGridPage';
 import { useState } from 'react';
@@ -17,10 +18,10 @@ function LikedPage() {
     setFavShows(favs);
   };
 
-  const { data: result, error } = {
+  const { data: result, error } = useQuery({
     queryKey: [favShows],
     queryFn: () => getFavShows(favShows),
-  };
+  });
   if (error) {
     return <div>Some Error Occurred : {error.toString()}</div>;
   } else {

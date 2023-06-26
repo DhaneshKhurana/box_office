@@ -7,7 +7,7 @@ const PCard = ({ data }) => {
   const country = data.country ? data.country.name : 'Not Known';
 
   return (
-    <>
+    <div>
       <div>
         <img src={imgsrc} alt={`${name} image`}></img>
       </div>
@@ -21,7 +21,7 @@ const PCard = ({ data }) => {
         Birthday: {birthday} Death: {deathday}
       </p>
       <p>Country: {country}</p>
-    </>
+    </div>
   );
 };
 export default PCard;
