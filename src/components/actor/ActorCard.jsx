@@ -1,3 +1,5 @@
+import { SearchCard, SearchImgWrapper } from '../sharedStyles/SearchCard';
+
 const PCard = ({ data }) => {
   const imgsrc = data.image ? data.image.medium : '/altImage.png';
   const name = data.name;
@@ -7,10 +9,10 @@ const PCard = ({ data }) => {
   const country = data.country ? data.country.name : 'Not Known';
 
   return (
-    <div>
-      <div>
+    <SearchCard>
+      <SearchImgWrapper>
         <img src={imgsrc} alt={`${name} image`}></img>
-      </div>
+      </SearchImgWrapper>
       <div>
         <h1>Name: {name}</h1>
       </div>
@@ -21,7 +23,7 @@ const PCard = ({ data }) => {
         Birthday: {birthday} Death: {deathday}
       </p>
       <p>Country: {country}</p>
-    </div>
+    </SearchCard>
   );
 };
 export default PCard;

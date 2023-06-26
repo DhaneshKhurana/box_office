@@ -1,8 +1,9 @@
+import { FlexGrid } from '../sharedStyles/FlexGrid';
 import PCard from './ActorCard';
 
 export default function ActorGrid({ result }) {
   return (
-    <div>
+    <FlexGrid>
       {result.map((data, idx) =>
         data.person ? (
           <PCard key={data.person.id} data={data.person} />
@@ -10,6 +11,6 @@ export default function ActorGrid({ result }) {
           <div key={idx}>Irr relevenat data</div>
         )
       )}
-    </div>
+    </FlexGrid>
   );
 }

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getFavShows } from '../data/tv_maze';
-import ShowGridPage from './ShowGridPage';
+import ShowGrid from '../components/show/ShowGrid';
 import { useState } from 'react';
 
 function LikedPage() {
@@ -25,7 +25,7 @@ function LikedPage() {
   if (error) {
     return <div>Some Error Occurred : {error.toString()}</div>;
   } else {
-    return <ShowGridPage result={result} favChanged={onfavChanged} />;
+    return <ShowGrid result={result} favChanged={onfavChanged} />;
   }
 }
 

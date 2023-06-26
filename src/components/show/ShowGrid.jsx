@@ -1,10 +1,11 @@
-import ShowCard from '../components/show/ShowCard';
-import { useStorageHook } from '../logic/custom_hooks';
+import ShowCard from './ShowCard';
+import { useStorageHook } from '../../logic/custom_hooks';
+import { FlexGrid } from '../sharedStyles/FlexGrid';
 
 const LIKE = 'like';
 const UNLIKE = 'unlike';
 
-export default function ShowGridPage({ result, favChanged }) {
+export default function ShowGrid({ result, favChanged }) {
   const [favShows, showLikeChanged] = useStorageHook({
     initVal: [],
     storeKey: 'favShows',
@@ -21,15 +22,15 @@ export default function ShowGridPage({ result, favChanged }) {
 
   if (result) {
     return (
-      <div>
+      <FlexGrid>
         {result.map((data, idx) => {
           if (data) {
-            const favBtn = favShows.includes(data.show.id) ? 'Unlike' : 'Like';
+            const isLiked = favShows.includes(data.show.id) ? true : false;
             return data.show ? (
               <ShowCard
                 key={data.show.id}
                 data={data.show}
-                favBtn={favBtn}
+                isLiked={isLiked}
                 onFavBtnClicked={onFavBtnClicked}
               />
             ) : (
@@ -39,7 +40,7 @@ export default function ShowGridPage({ result, favChanged }) {
             return <div key={idx}>Still Loading show data</div>;
           }
         })}
-      </div>
+      </FlexGrid>
     );
   } else {
     return <div>Still Loading</div>;

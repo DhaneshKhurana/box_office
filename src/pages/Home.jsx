@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { getActors, getShows } from '../data/tv_maze';
 import ActorGrid from '../components/actor/ActorGrid';
 import { useQuery } from '@tanstack/react-query';
-import ShowGridPage from './ShowGridPage';
 import CustomRadio from '../components/home/CustomRadio';
+import { RadiosWrapper, SearchInput } from '../components/home/SearchForm';
+import ShowGrid from '../components/show/ShowGrid';
 
 const Home = () => {
   const [searchStr, setSearchStr] = useState('');
@@ -32,7 +33,7 @@ const Home = () => {
 
   const renderResults = () => {
     if (searchOption === 'show') {
-      return <ShowGridPage result={result} />;
+      return <ShowGrid result={result} />;
     }
     return <ActorGrid result={result} />;
   };
@@ -40,21 +41,28 @@ const Home = () => {
   return (
     <div>
       <div>
-        <input type="text" value={searchStr} onChange={onSearchStrChange} />
-        <CustomRadio
-          label="Show"
-          name="search_option"
-          value="show"
-          checked={searchOption === 'show'}
-          onChange={onSearchOptionChanged}
+        <SearchInput
+          placeholder="Enter Movie/Show/Actor"
+          type="text"
+          value={searchStr}
+          onChange={onSearchStrChange}
         />
-        <CustomRadio
-          label="Actor"
-          name="search_option"
-          value="actor"
-          checked={searchOption === 'actor'}
-          onChange={onSearchOptionChanged}
-        />
+        <RadiosWrapper>
+          <CustomRadio
+            label="Show"
+            name="search_option"
+            value="show"
+            checked={searchOption === 'show'}
+            onChange={onSearchOptionChanged}
+          />
+          <CustomRadio
+            label="Actor"
+            name="search_option"
+            value="actor"
+            checked={searchOption === 'actor'}
+            onChange={onSearchOptionChanged}
+          />
+        </RadiosWrapper>
       </div>
       <div>{result && renderResults()}</div>
     </div>
