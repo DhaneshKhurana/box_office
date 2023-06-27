@@ -6,7 +6,7 @@ import { getShowDetail } from '../data/tv_maze';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import styled from 'styled-components';
-import { Link } from 'react';
+import { Link } from 'react-router-dom';
 
 //Always remember useQuery may take time, check is loading and handle undefined value till then
 //I wasted 3 hours to figure out this. Finally error solved. Before I could get result, the app crashed
